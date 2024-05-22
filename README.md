@@ -1,35 +1,9 @@
-# school
+<p>Это репозиторий с заданием на учебную практику.</p>
+<p>Задание можно найти по ссылке: https://docs.google.com/document/d/15T4_Rs1RpUxEZpyeusC-fGElIlz7rXlS9JtlInLFJZA/edit</p>
+<p>В этом репозитроии хранится Frontend часть написанная на Vue 3 + VueRouter. Backend можно найти по ссылке: https://github.com/K0nstantinK0t/SchoolBackend</p>
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+<p>Для сборки нужно выполнить следующии команды:</p>
+<p>npm install </p>
+<p>npm run dev - для отладки </p>
+или
+<p>npm run build - для сборки файлов</p>
