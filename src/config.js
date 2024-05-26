@@ -1,4 +1,4 @@
 export default {
-    APIHost: 'http//api.school.local/',
-    classesURL: 'http//api.school.local/api/schoolclasses'
+    APIHost: 'http//api.school.local',
+    classesURL: 'http://api.school.local/api/schoolclasses'
 }

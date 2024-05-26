@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import axios from "axios";
 import store from "@/store.js";
+import config from "@/config.js";
 
 
 axios.defaults.withCredentials = true;
