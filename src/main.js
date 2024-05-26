@@ -11,7 +11,7 @@ axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;
 axios.defaults.headers.common['Authorization'] = `bearer ${store.token}`
 axios.defaults.headers.common['Accept'] = 'application/json'
-axios.get('http://api.tastly.com/sanctum/csrf-cookie').then((response)=>console.log(response))
+axios.get('http://api.school.local/sanctum/csrf-cookie')
 const app = createApp(App)
 
 app.use(router)
