@@ -17,8 +17,12 @@ const router = useRouter()
             Отчёты
           </button>
           <button type="button" class="btn btn-light col-4 border border-1"
-                  @click="router.push({ name: 'login' })">
+                  @click="router.push({ name: 'login' })" v-if="store.role!=='admin'">
             Войти
+          </button>
+          <button type="button" class="btn btn-light col-4 border border-1"
+                  @click="router.push({ name: 'adminPanel' })" v-if="store.role=='admin'">
+            Панель аминистратора
           </button>
         </nav>
   </header>
