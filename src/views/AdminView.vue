@@ -3,12 +3,14 @@ import PageHeader from "@/components/PageHeader.vue";
 import axios from 'axios'
 import config from '@/config.js'
 import {reactive, ref} from "vue";
+import StudentForm from "@/components/StudentForm.vue";
 
 const classes = reactive([])
-const students = reactive([])
+const students = ref([])
 const teacher = reactive([])
 const classID = ref('')
 const className = ref('')
+
 axios.get(config.classesURL).then(function(response){
   for (const schoolClass of response.data) {
     classes.push(schoolClass)
@@ -19,8 +21,9 @@ function submitClassSelectionForm(emit) {
   console.log(classID.value)
   axios.get(config.classesURL+'/'+classID.value+'/withStudentsAndTeachers')
       .then(function (response){
+        students.value=[]
         for (const student of response.data.students) {
-          students.push(student)
+          students.value.push(student)
         }
 
         teacher.value=response.data.teacher
@@ -40,7 +43,7 @@ function submitClassSelectionForm(emit) {
     <input type="submit" class="btn btn-primary mt-2 mx-2" value="Отобразить список класса">
   </form>
   <h3 class="text-center" v-if="students.length">Ученики {{className}}</h3>
-  <h5 class="text-center" v-if="teacher.value.name">Классный руководитель - {{teacher.value.name}}</h5>
+  <h5 class="text-center" v-if="teacher.value">Классный руководитель - {{teacher.value.name}}</h5>
   <section v-if="students.length" class="container">
     <table class="my-4 table table-striped">
       <tr>
@@ -73,6 +76,7 @@ function submitClassSelectionForm(emit) {
       </tr>
     </table>
   </section>
+  <StudentForm></StudentForm>
 </template>
 
 <style scoped>

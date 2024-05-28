@@ -21,8 +21,6 @@ function submitLogInForm(emit) {
       email: email.value,
       password: password.value,
     }).catch((error) => {
-      console.log(error)
-      console.log('ВСЕ ПЛОХО')
       for (let i in error.response.data.errors)
         errors.push(error.response.data.errors[i][0])
       return false
@@ -38,7 +36,6 @@ function submitLogInForm(emit) {
       errors.push("Все поля должны быть заполнены")
     }
   }
-  return false
 }
 </script>
 

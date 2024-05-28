@@ -40,7 +40,7 @@ function submitClassSelectionForm(emit) {
     <input type="submit" class="btn btn-primary mt-2 mx-2" value="Отобразить список класса">
   </form>
   <h3 class="text-center">Ученики {{className}}</h3>
-  <h5 class="text-center" v-if="teacher.value.name">Классный руководитель - {{teacher.value.name}}</h5>
+  <h5 class="text-center" v-if="teacher.value">Классный руководитель - {{teacher.value.name}}</h5>
   <section v-if="students.length" class="container">
     <table class="my-4 table table-striped">
       <tr>
