@@ -4,6 +4,7 @@ import axios from 'axios'
 import config from '@/config.js'
 import {reactive, ref} from "vue";
 import StudentForm from "@/components/StudentForm.vue";
+import TeacherForm from '@/components/TeacherForm.vue'
 
 const classes = reactive([])
 const students = ref([])
@@ -17,7 +18,8 @@ axios.get(config.classesURL).then(function(response){
   }
 })
 function submitClassSelectionForm(emit) {
-  emit.preventDefault()
+  if(emit)
+    emit.preventDefault()
   console.log(classID.value)
   axios.get(config.classesURL+'/'+classID.value+'/withStudentsAndTeachers')
       .then(function (response){
@@ -30,6 +32,13 @@ function submitClassSelectionForm(emit) {
         console.log(teacher.value)
         className.value=response.data.name
       })
+}
+function removeStudent(id){
+  if(confirm('Вы точно хотите удалить запись ученика?'))
+  axios.post(config.removeStudent(id))
+    .then(function(){
+      submitClassSelectionForm()
+    })
 }
 </script>
 
@@ -44,6 +53,7 @@ function submitClassSelectionForm(emit) {
   </form>
   <h3 class="text-center" v-if="students.length">Ученики {{className}}</h3>
   <h5 class="text-center" v-if="teacher.value">Классный руководитель - {{teacher.value.name}}</h5>
+  <TeacherForm :classID="classID" v-if="students.length"></TeacherForm>
   <section v-if="students.length" class="container">
     <table class="my-4 table table-striped">
       <tr>
@@ -72,6 +82,9 @@ function submitClassSelectionForm(emit) {
         </td>
         <td>
           {{student.birthday}}
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" @click="removeStudent(student.id)">Удалить</button>
         </td>
       </tr>
     </table>

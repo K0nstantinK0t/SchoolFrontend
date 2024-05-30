@@ -5,5 +5,11 @@ export default {
     teachersURL: 'http://api.school.local/api/teachers',
     logOutURL: 'http://api.school.local/api/logout',
     authURL: 'http://api.school.local/api/token',
-    createStudentURL: 'http://api.school.local/api/students'
+    createStudentURL: 'http://api.school.local/api/students',
+    removeStudent: (id)=>{
+        return 'http://api.school.local/api/students/'+id+'/remove'
+    },
+    setClassTeacherURL: (classID)=>{
+        return 'http://api.school.local/api/schoolclasses/'+classID+'/setTeacher'
+    },
 }

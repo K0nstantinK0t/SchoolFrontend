@@ -39,7 +39,8 @@ function submitAddStudentForm(emit){
         errors.push(error.response.data.errors[i][0])
       return false
     }).then(function () {
-      status.value='success'
+      if(!errors.length)
+        status.value='success'
     })
   } else {
     {
