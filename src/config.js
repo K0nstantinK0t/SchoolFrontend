@@ -12,4 +12,5 @@ export default {
     setClassTeacherURL: (classID)=>{
         return 'http://api.school.local/api/schoolclasses/'+classID+'/setTeacher'
     },
+    youngestStudentURL: 'http://api.school.local/api/students/youngest'
 }

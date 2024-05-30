@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'adminPanel',
       component: () => import('../views/AdminView.vue')
     },
+    {
+      path: '/reports',
+      name: 'reports',
+      component: () => import('../views/ReportsView.vue')
+    },
   ]
 })
 
